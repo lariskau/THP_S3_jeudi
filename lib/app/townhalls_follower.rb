@@ -1,40 +1,35 @@
 require 'twitter'
+require_relative 'townhalls_scrapper.rb'
 
-class Bonjour
+def pro_twitter
 
-      @@client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = ""
-        config.consumer_secret     = ""
-        config.access_token        = ""
-        config.access_token_secret = ""
-      end
+  #On se connecte avec nos clefs =)
+  client = Twitter::REST::Client.new do |config|
+    config.consumer_key        = ""
+    config.consumer_secret     = ""
+    config.access_token        = ""
+    config.access_token_secret = ""
+  end
 
-      @@user_follow = []
-      @@mairie = ["flers", "alençon", "caen", "marseille", "lille"]
+#On créer un tableau qui va contenir les derniers utilisateurs qui on parlais de leurs mairies
+  user_follow = []
 
-def handle
-      @@mairie.each do |i|
-        @@client.search("mairie #{i}", result_type: "recent").take(1).collect do |tweet|
-          nom = "@#{tweet.user.screen_name}"
-          @@user_follow << nom
-         end
-      end
+  @town_names.each do |i|
+    client.search("mairie #{i}", result_type: "recent").take(1).collect do |tweet|
+      nom = "@#{tweet.user.screen_name}" #on rajoute un "@"
+      user_follow << nom
+    end
+  end
+
+
+#On créer une boucle qui va follow chaque personne du array user_follow
+  user_follow.each do |single_user|
+    single_user[0] = ''
+    begin
+      client.follow!(single_user)
+      puts "Vous venez de follow #{single_user}"
+    rescue Exception, NotFound, Forbidden #Evite que le programme s'arrete quand il ne trouve rien  
+    next
+    end
+  end
 end
-
-def follow
-      @@user_follow.each do |single_user|
-        single_user[0] = ''
-        begin
-          @@client.follow!(single_user)
-          puts "Vous venez de follow #{single_user}"
-        rescue Exception, NotFound, Forbidden
-        next
-        end
-      end
-end
-
-
-end
-
-Bonjour.new.handle
-Bonjour.new.follow
