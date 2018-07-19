@@ -1,8 +1,8 @@
 require 'gmail'
-
+require 'dotenv'
 #On se log à gmail =)
-USERNAME = 'husnot.a@gmail.com'
-PASSWORD = 'Aeiouyteam61'
+USERNAME = ENV['USERNAME']
+PASSWORD = ENV['PASSWORD']
 
   def envoie_mail
 

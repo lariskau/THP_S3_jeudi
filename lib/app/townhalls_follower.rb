@@ -1,14 +1,15 @@
 require 'twitter'
+require 'dotenv'
 require_relative 'townhalls_scrapper.rb'
 
 def pro_twitter
 
-  #On se connecte avec nos clefs =)
+  #On se connecte avec le .env
   client = Twitter::REST::Client.new do |config|
-    config.consumer_key        = ""
-    config.consumer_secret     = ""
-    config.access_token        = ""
-    config.access_token_secret = ""
+    config.consumer_key        = ENV['CONFIG.CONSUMER_KEY']
+    config.consumer_secret     = ENV['CONFIG.CONSUMER_SECRET']
+    config.access_token        = ENV['CONFIG.ACCESS_TOKEN']
+    config.access_token_secret = ENV['CONFIG.ACCESS_TOKEN_SECRET']
   end
 
 #On créer un tableau qui va contenir les derniers utilisateurs qui on parlais de leurs mairies
