@@ -8,4 +8,5 @@ gem 'twitter'
 gem 'dotenv'
 
 
+library 'open-uri'
 
