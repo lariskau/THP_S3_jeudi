@@ -1,27 +1,30 @@
-#titre Envoi d'emails en masse et bot twitter
+# Envoi d'emails en masse et bot twitter   
+
   
 Projet dans le cadre de la session 5 semaine 3 de THP des équipe de Flers et Lille.  
   
-###titre l'équipe:
+### l'équipe:  
+--------
+
 *les normands Léa ( reine du scrapping) et Edouard ( superdev 2.0)  
 *les nordistes Maxime ( chef d'orchestre pour bots) et Manon ( nottament rédactrice de readme )  
 
 Projet réalisé à distance ( because... c'est pas la porte d'à côté) mais dans la joie et bonne humeur!
 
-##titre Fonctions du programme:
-
+## Fonctions du programme:  
+-----------------------
 *__Scrapping__ d'adresses mails de mairies de trois départements ( la Manche, le Var et le Morbihan) et les stocke dans un __fichier .csv__.  
 *utilisation de ces informations pour __envoyer un mail__ via bot afin de promouvoir thp.   
 *scrapping __d'handles twitter__ des mêmes mairies afin de les __follow via bot__.  
 
-##titre Comment lancer le programme?             
+## Comment lancer le programme?             
 *Cloner ce repositorie.  
 *Effectuer la commande dans votre terminal positionné dans le dossier que vous avait cloné "$ bundle install" afin que les gem nécessaires au programme.  
 *Ajoutez un fichier .env à la racine du dossier dans lequel vous noterez vos clés d'API pou Twitter, googledrive et Gmail  
 *Lancer le programme app.rb avec la commande " ruby app.rb"  
 *Laisser vous guider :)  
 
-##titre Utilité des différents fichiers et dossiers
+## Utilité des différents fichiers et dossiers
 
 *le dossier db contient les donnés scrappés dans un fichier 'townhalls.csv' qui contient les donnés scappés ( nom des communes et mails) des départements Manche, Morbihan et Var.  
 *le dossier lib qui contient les différentes fonctions qui composent ce programme rangées en sous-dossiers:   
@@ -31,11 +34,11 @@ Projet réalisé à distance ( because... c'est pas la porte d'à côté) mais d
 *le gemfile afin d'avoir les gems nécessaires au lancement du programme  
 *.gitignore qui permet que certains fichiers qui contiennent des données sensibles tels que le dotenv ne soit pas envoyer par erreur sur github.  
 
-##titre Fonctionnement 
+## Fonctionnement 
  
 Navigation par choix multiples.
 
-##titre Gems utilisées:
+## Gems utilisées:
 
 *La gem 'nokogiri': qui sert à scrapper ( récupérer) les données d'un site internet en uttilisant nottament le css des pages web.  
 *La gem 'google_drive'afin d'obtenir un fichier .cvs donc format tableur pour une lecture facile des donnés scrappés  
@@ -43,7 +46,7 @@ Navigation par choix multiples.
 *La gem 'twitter' pour uttiliser un compter twitter qui puisse follow les handles dont le nom est revenu en premier dans les recherches des noms des communes  
 *La gem 'dotenv'qui permet d'appeller des données sensibles stockées dans un fichier .env ( exemple les clefs API)  
 
-##titre Résultats:
+## Résultats:
 
 Voici le mail envoyé par le bot à __.... mairies__.  
 >"Bonjour,
