@@ -16,7 +16,7 @@ require_relative 'townhalls_mailer.rb'
 #On créer deux tableau, 1 pour stocker les noms des maries, l'autre pour stocker les e-mails
     @town_names = []
     @town_emails = []
-    urls = %w[http://www.annuaire-des-mairies.com/manche.html]
+    urls = %w[http://www.annuaire-des-mairies.com/manche.html http://www.annuaire-des-mairies.com/manche-2.html http://www.annuaire-des-mairies.com/manche-3.html]
 
     urls.each do |url|
     doc = Nokogiri::HTML(open(url))
@@ -28,35 +28,6 @@ require_relative 'townhalls_mailer.rb'
       @town_emails << town_email
       end
     end
-
-    urls = %w[http://www.annuaire-des-mairies.com/manche-2.html]
-
-    urls.each do |url|
-    doc = Nokogiri::HTML(open(url))
-  	doc.css(".lientxt").each do |link|
-  		url = "http://annuaire-des-mairies.com" + link["href"][1..-1].to_s
-  		town_name = link.text
-  		town_email = get_the_email_of_a_townhal_from_its_webpage(url)
-      @town_names << town_name
-      @town_emails << town_email
-      end
-    end
-
-    urls = %w[http://www.annuaire-des-mairies.com/manche-3.html]
-
-    urls.each do |url|
-    doc = Nokogiri::HTML(open(url))
-  	doc.css(".lientxt").each do |link|
-  		url = "http://annuaire-des-mairies.com" + link["href"][1..-1].to_s
-  		town_name = link.text
-  		town_email = get_the_email_of_a_townhal_from_its_webpage(url)
-      @town_names << town_name
-      @town_emails << town_email
-      end
-    end
-    envoie_mail #Cette méthode ce trouve dans townhalls_mailer.rb
-    pro_twitter #Cette méthode ce trouve dans townhalls_follower.rb
-  end
 
   #On répete les mêmes def pour le Var et Morbihan 
 
