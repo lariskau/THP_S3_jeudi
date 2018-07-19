@@ -1,6 +1,9 @@
-source "https://rubygems.org"
-version de Ruby'2.5.1'
-library 'open-uri'
+source 'https://rubygems.org'
+
+ruby '2.5.1'
+
 gem 'nokogiri'
-gem 'json'
-gem 'bundler'
+gem 'google_drive'
+gem 'gmail'
+gem 'twitter'
+gem 'dotenv'
