@@ -3,3 +3,6 @@
 
 ###Compte gmail&drive
 config.json
+
+###Ignore fichiers générés par RubyMine
+.idea
