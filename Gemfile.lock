@@ -8,6 +8,7 @@ GEM
     declarative-option (0.1.0)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.5.0)
     equalizer (0.0.11)
     faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
@@ -100,6 +101,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   gmail
   google_drive
   nokogiri
