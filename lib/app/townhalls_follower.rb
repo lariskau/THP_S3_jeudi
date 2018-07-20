@@ -14,23 +14,24 @@ def pro_twitter
   end
 
 
+  town_names = ["Acqueville", "Agneaux", "Agon Coutainville", "Airel", "Amfreville", "Amigny", "Ancteville", "Caen"]
 #On créer un tableau qui va contenir les derniers utilisateurs qui on parlais de leurs mairies
   user_follow = []
 
-  @town_names.each do |i|
+  town_names.each do |i|
     client.search("mairie #{i}", result_type: "recent").take(1).collect do |tweet|
       nom = "@#{tweet.user.screen_name}" #on rajoute un "@"
       user_follow << nom
 #On enregistre les handles dans le googles spreadsheet accessible ici : https://docs.google.com/spreadsheets/d/1m5VF7W9d0NAtBSkAKh0mvJkcEaEJIA7vU-ATV7Q0iK8/edit?usp=sharing
-      session = GoogleDrive::Session.from_config("config.json")
-      ws = session.spreadsheet_by_key("1m5VF7W9d0NAtBSkAKh0mvJkcEaEJIA7vU-ATV7Q0iK8").worksheets[0]
-      i = 2
+#      session = GoogleDrive::Session.from_config("config.json")
+#      ws = session.spreadsheet_by_key("1m5VF7W9d0NAtBSkAKh0mvJkcEaEJIA7vU-ATV7Q0iK8").worksheets[0]
+#      i = 2
 
-      user_follow.each do |user|
-      ws[i, 4] = user
-      ws.save
-      i += 1
-      end
+#      user_follow.each do |user|
+#      ws[i, 4] = user
+#      ws.save
+#      i += 1
+#      end
     end
   end
 
